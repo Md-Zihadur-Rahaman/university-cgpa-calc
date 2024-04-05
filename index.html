@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>University CGPA Calculator</title>
+  </head>
+  <body>
+    <div>
+      <div
+        class="bg-cyan-950 py-3 font-extrabold text-xl text-white text-center"
+      >
+        <h1>University CGPA Calculator</h1>
+      </div>
+      <div class="md:w-4/12 w-11/12 mx-auto flex justify-center flex-col my-5">
+        <div class="bg-cyan-900 flex text-right w-full pl-4 mb-5 rounded-full">
+          <input
+            id="input-field"
+            class="bg-transparent border-none outline-none w-full text-lg font-bold text-white"
+            name="inputField"
+            value=""
+          /><button
+            onclick="calculateInput()"
+            class="bg-cyan-700 py-2 rounded-r-full text-4xl px-5 text-white font-extrabold"
+          >
+            =
+          </button>
+        </div>
+        <div class="flex-row-reverse flex gap-2 mb-5">
+          <input
+            onclick="allClear()"
+            type="button"
+            class="bg-cyan-700 cursor-pointer w-12 h-12 text-white rounded-xl"
+            value="AC"
+          /><input
+            onclick="inputButton('+')"
+            type="button"
+            class="bg-cyan-700 cursor-pointer w-12 h-12 text-white rounded-xl"
+            value="+"
+          /><input
+            onclick="inputButton('/')"
+            type="button"
+            class="bg-cyan-700 cursor-pointer w-12 h-12 text-white rounded-xl"
+            value="/"
+          /><input
+            onclick="deleteNumber()"
+            type="button"
+            class="bg-cyan-700 cursor-pointer w-20 h-12 text-white rounded-xl"
+            value="Remove"
+          />
+        </div>
+        <div
+          class="flex flex-row gap-3 justify-end bg-slate-100 p-3 rounded-md"
+        >
+          <div
+            class="mb-5 w-full justify-center items-center flex flex-col gap-5"
+          >
+            <div class="flex flex-row gap-5 w-full">
+              <input
+                onclick="inputButton('4')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="A+"
+                id="a-plus"
+              /><input
+                onclick="inputButton('3.75')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="A"
+              /><input
+                onclick="inputButton('3.5')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="A-"
+              />
+            </div>
+            <div class="flex flex-row gap-5 w-full">
+              <input
+                onclick="inputButton('3.25')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="B+"
+              /><input
+                onclick="inputButton('3')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="B"
+              /><input
+                onclick="inputButton('2.75')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="B-"
+              />
+            </div>
+            <div class="flex flex-row gap-5 w-full">
+              <input
+                onclick="inputButton('2.5')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="C+"
+              /><input
+                onclick="inputButton('2.25')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="C"
+              /><input
+                onclick="inputButton('2')"
+                class="bg-cyan-600 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-xl shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="D"
+              />
+            </div>
+            <div class="flex">
+              <input
+                onclick="alert('Failure is the pilar of Success')"
+                class="bg-cyan-900 text-2xl font-extrabold text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="F"
+              />
+            </div>
+          </div>
+          <div class="w-2/12">
+            <div
+              class="flex flex-col gap-5 justify-center items-center align-middle"
+            >
+              <input
+                onclick="inputButton('6')"
+                class="bg-cyan-900 text-2xl font-extrabold text-white w-10 h-10 rounded-md shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="6"
+              /><input
+                onclick="inputButton('7')"
+                class="bg-cyan-900 text-2xl font-extrabold text-white w-10 h-10 rounded-md shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="7"
+              /><input
+                onclick="inputButton('8')"
+                class="bg-cyan-900 text-2xl font-extrabold text-white w-10 h-10 rounded-md shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="8"
+              /><input
+                onclick="inputButton('9')"
+                class="bg-cyan-900 text-2xl font-extrabold text-white w-10 h-10 rounded-md shadow-cyan-800 shadow-md cursor-pointer"
+                type="button"
+                value="9"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-cyan-950 fixed bottom-0 w-full">
+        <p class="text-center text-sm font-bold text-white">
+          Designed by Zihadur Rahaman
+        </p>
+      </div>
+    </div>
+    <script src="script.js/calculator.js"></script>
+  </body>
+</html>
